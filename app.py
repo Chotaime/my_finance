@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 import joblib
 import pandas as pd
 
@@ -7,6 +8,8 @@ model = joblib.load("model.pkl")
 
 # Create the Flask app
 app = Flask(__name__)
+CORS(app)  # Enables CORS for all domains by default
+
 
 @app.route('/')
 def home():
